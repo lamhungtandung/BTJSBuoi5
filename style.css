@@ -1,0 +1,6 @@
+#ketnoi{
+    display: none;
+}
+#ketnoi.show{
+    display: inline-block;
+}
