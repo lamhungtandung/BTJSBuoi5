@@ -24,7 +24,7 @@ var ketQua = 0;
 ketQua = tienCap (maKhachhang, sokenh, kenhKetNoi)
 
 if(loaiKH == 0){
-    return alert("Please select type of clients");
+    return alert('error');
 }
 
 document.getElementById('txtResult4').innerHTML = `Mã Khách hàng : ${maKhachhang}, Tiền cáp là : $${ketQua}`
