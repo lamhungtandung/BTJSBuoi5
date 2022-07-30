@@ -12,19 +12,19 @@ var ketQua = '';
 //xu li
 
 function tinhdiem(a, b, c, d, e) {
-    var sum = a + b + c + d + e;
+    var tong = a + b + c + d + e;
 
         if (a === 0 || b === 0 || c === 0) {
-            sum = 0
+            tong = 0
         }
-        return sum
+        return tong
     }
-    sum = tinhdiem(diem1, diem2, diem3, khuVuc, doiTuong)
-    if (sum === 0) {
+    tong = tinhdiem(diem1, diem2, diem3, khuVuc, doiTuong)
+    if (tong === 0) {
         return document.getElementById('txtResult').innerHTML = 'Bạn có 1 hoặc nhiều môn 0 điểm bạn đã : trượt '
-    } else if (sum >= diemChuan) {
+    } else if (tong >= diemChuan) {
         ketQua = 'Bạn đã trúng tuyển'
-    } else if (sum < diemChuan) {
+    } else if (tong < diemChuan) {
         ketQua = 'Bạn đã trượt'
     }
 
