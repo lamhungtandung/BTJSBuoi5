@@ -1,53 +1,52 @@
-var loaiKH = document.getElementById('khachhang');
-loaiKH.onchange = function () {
-    var loaiKH2 = Number(document.getElementById('khachhang').value);
-    var kenhKetNoi = document.getElementById('ketnoi');
-    if (loaiKH2 === 1) {
-        kenhKetNoi.classList.remove('show')
-    } else if (clientss === 2) {
-        kenhKetNoi.classList.add('show')
 
-    }
-}
-
-
-document.getElementById('btncap').onclick = function ()
+function tinhTienCap ()
  {
     //input
-    var loaiKH = document.getElementById('khachhang').value;
+    var loaiKH = document.getElementById('khachhang');
     var maKhachhang = Number(document.getElementById('makh').value);
     var sokenh = Number(document.getElementById('sokenh').value);
     var kenhKetNoi = Number(document.getElementById('ketnoi').value);
-//output
-var ketQua = 0;
+    var hienThi = document.getElementById('txtResult4');
+
 //xu li
-ketQua = tienCap (maKhachhang, sokenh, kenhKetNoi)
+var ketQua = tienCap (maKhachhang, sokenh, kenhKetNoi)
 
 if(loaiKH == 0){
     return alert('error');
 }
 
-document.getElementById('txtResult4').innerHTML = `Mã Khách hàng : ${maKhachhang}, Tiền cáp là : $${ketQua}`
+hienThi.innerHTML = 'Mã khách hàng: ' + maKhachhang + '<br>' + 'Tổng tiền cáp: ' + '$' + ketQua;
 }
 
-function tienCap(a, b, c) {
-    var coban = 0;
-    var phiDichvu = 0;
-    var caocap = 0;
-    var ketQua = 0;
-    if (a === 1) {
-        coban = 4.5;
-        phiDichvu = 20.5;
-        caocap = 7.5;
-        ketQua = coban + phiDichvu + caocap * b
-    } else if (a === 2) {
-        coban = 15;
-        phiDichvu = 75;
-        caocap = 50;
-        if (c > 10) {
-            phiDichvu = phiDichvu + (c - 10) * 5;
+function tienCap(loaiKH, sokenh, kenhKetNoi) {
+    var tienCap = 0;
+    if (loaiKH == 'ND') {
+        tienCap = 4.5 + 20.5 + (7.5 * sokenh);
+    } else {
+        if (kenhKetNoi > 0 && kenhKetNoi <= 10) {
+            tienCap = 15 + 75 + (50 * sokenh);
+        } else {
+            tienCap = 15 + 75 + ((kenhKetNoi - 10) * 5) + (50 * sokenh);
         }
-        ketQua = coban + phiDichvu + caocap * b
     }
-    return ketQua;
+
+    return tienCap;
+}
+//kiem tra loai khach hang
+function kiemTra (){
+    var loaiKH = document.getElementById('khachhang').value;
+var xuatKH = loaiKH.options[loaiKH.selectedIndex].value;
+var kenhKetNoi = document.getElementById('ketnoi').value;
+
+if (xuatKH == '1') {
+kenhKetNoi.disabled = true;
+} else {
+    kenhKetNoi.disabled = false;
+}
+
+if (xuatKH == '2') {
+    kenhKetNoi.disabled = true;
+}else {
+    kenhKetNoi.disabled = false;
+}
 }
